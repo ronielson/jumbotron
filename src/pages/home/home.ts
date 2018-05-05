@@ -17,16 +17,17 @@ export class HomePage {
 
     payments = []; // will be provided by user
     product = null; // will also be provided by user
-
+	result = '---';
+	
     submitForm() { // called when submit button is pressed
 
         // convert strings to numbers (floats), and nulls to zerp
-        for (var i = 0; i < this.names.length; i++) {
-            if(this.payments[i] == null) {
-                this.payments[i] = 0;
+        for (let j = 0; j < this.names.length; j++) {
+            if(this.payments[j] == null) {
+                this.payments[j] = 0;
             }
             else {
-                this.payments[i] = parseFloat(this.payments[i]);
+                this.payments[j] = parseFloat(this.payments[j]);
             }
         }
 
@@ -35,15 +36,15 @@ export class HomePage {
         console.log('product', this.product);
 
         // find highest number and add 300
-        let result = Math.max.apply(null, this.payments) + 300;
+        this.result = Math.max.apply(null, this.payments) + 300;
 
         // display your result in an alert
-        let alert = this.alertCtrl.create({
+        /*let alert = this.alertCtrl.create({
             title: 'Computation complete!'!,
             subTitle: 'The number you\'re looking for is ' + result,
             buttons: ['Ok, cool.']
         });
-        alert.present();
+        alert.present();*/
 
     }
 

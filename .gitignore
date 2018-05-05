@@ -8,3 +8,6 @@ plugins
 *.swo
 *.log
 *.DS_Store
+www/build/*
+package-lock.json
+.sourcemaps/*
