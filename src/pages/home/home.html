@@ -1,18 +1,36 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Jumbotron</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <form (ngSubmit)="submitForm()">
+
+        <ion-list>
+            <ion-item>
+                <ion-label>Product</ion-label>
+                <ion-select [(ngModel)]="product" name="product">
+                    <ion-option value="plate">Plate</ion-option>
+                    <ion-option value="spoon">Spoon</ion-option>
+                    <ion-option value="fork">Fork</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <ion-item *ngFor="let name of names; let i = index;">
+            <ion-label floating>{{name}}</ion-label>
+            <ion-input type="number" [(ngModel)]="payments[i]" name="payments[i]"></ion-input>
+        </ion-item>
+
+        <button ion-button full type="submit">Compute</button>
+
+    </form>
+
+
 </ion-content>
