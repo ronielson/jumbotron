@@ -9,30 +9,24 @@
 
 <ion-content padding>
 
-
-    <form (ngSubmit)="submitForm()">
-
-        <ion-list>
-            <ion-item>
-                <ion-label>Product</ion-label>
-                <ion-select [(ngModel)]="product" name="product">
-                    <ion-option value="plate">Plate</ion-option>
-                    <ion-option value="spoon">Spoon</ion-option>
-                    <ion-option value="fork">Fork</ion-option>
-                </ion-select>
-            </ion-item>
-        </ion-list>
-
-        <ion-item *ngFor="let name of names; let i = index;">
-            <ion-label floating>{{name}}</ion-label>
-            <ion-input type="number" [(ngModel)]="payments[i]" name="payments[i]"></ion-input>
+    <ion-list>
+        <ion-item>
+            <ion-label>Product</ion-label>
+            <ion-select [(ngModel)]="product" name="product">
+                <ion-option value="plate">Plate</ion-option>
+                <ion-option value="spoon">Spoon</ion-option>
+                <ion-option value="fork">Fork</ion-option>
+            </ion-select>
         </ion-item>
+    </ion-list>
 
-        <button ion-button full type="submit">Compute</button>
+    <ion-item *ngFor="let name of names; let i = index;">
+        <ion-label floating>{{name}}</ion-label>
+        <ion-input type="number" [(ngModel)]="payments[i]" name="payments[i]"></ion-input>
+    </ion-item>
 
-		Result is: {{result}}
-		
-    </form>
+    <button ion-button full (click)="submitForm()">Compute</button>
 
+	Result is: {{result}}
 
 </ion-content>
